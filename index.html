@@ -1,8 +1,211 @@
+<link rel="StyleSheet" href="style.css" type="text/css" media="all" />
 <html lang="en">
   <head>
-    <title>PCTMA</title>
-    <meta property="og:title" content="Point Completion Network" />
-    <meta property="og:image" content="https://wentaoyuan.github.io/pcn/images/shapenet.png" />
-    <meta property="og:url" content="https://youtu.be/bzJrPQilPxg" />
+    <title>RIF Net</title>
+    <meta property="og:title" content="RIFnet" />
   </head>
-  </html>
+  <body>
+    <hr>
+    <table align=center width=1200px>
+      <tr>
+        <td>
+          <left>
+            <center><h1>Deep Hierarchical Rotation Invariance Learning with Exact Geometry Feature Representation for Point Cloud Classification</h1></center>
+          </left>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <table align=center width=800px>
+      <tr>
+        <td align=center width=100px>
+          <center>
+            <span style="font-size:20px">Jianjie Lin</a></span>
+          </center>
+        </td>
+
+        <td align=center width=100px>
+          <center>
+            <span style="font-size:20px">Markus Rickert</a></span>
+          </center>
+        </td>
+        <td align=center width=100px>
+          <center>
+            <span style="font-size:20px">Alois Knoll</a></span>
+          </center>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <table align=center width=800px>
+      <tr>
+        <td align=center width=200px>
+          <center>
+            <span style="font-size:20px">Chair of Robotics, Artificial Intelligence and Real-time Systems</span>
+            <br>
+            <span style="font-size:20px">TUM Department of Informatics</span>
+          </center>
+        </td>
+      </tr>
+    </table> 
+    <br>
+    <table align=center width=400px>
+      <tr>
+        <td align=center width=100px>
+          <center>
+            <span style="font-size:20px"><a href="https://www.researchgate.net/publication/351884845_Deep_Hierarchical_Rotation_Invariance_Learning_with_Exact_Geometry_Feature_Representation_for_Point_Cloud_Classification">[Paper]</a></span>
+          </center>
+        </td>
+        <td align=center width=100px>
+          <center>
+            <span style="font-size:20px"><a href="bibtex.txt">[Bibtex]</a></span>
+          </center>
+        </td>
+        <td align=center width=100px>
+          <center>
+            <span style="font-size:20px"><a href=https://github.com/LinJianjie/RIFNet.git>[Code]</a></span>
+          </center>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <table align=center width=1000px>
+      <tr>
+        <td>
+          <center>
+            <img src = "images/rifNet_2.svg" height="300px"></img><br>
+          </center>
+        </td>
+      </tr>
+        <td>
+          <center>
+            <span style="font-size:20px"><i>The structure of Rotation invariant network </i>
+          </center>
+        </td>
+      </tr>
+    </table>
+    <hr>
+    <center><h1>Abstract</h1></center>
+    Rotation invariance is a crucial property for 3D object classification, which is still a challenging task. 
+State-of-the-art deep learning-based works require a massive amount of data augmentation to tackle this problem. This is however inefficient and classification accuracy suffers a sharp drop in experiments with arbitrary rotations. We introduce a new descriptor that can globally and locally capture the surface geometry properties and is based on a combination of spherical harmonics energy and point feature representation. The proposed descriptor is proven to fulfill the rotation-invariant property.
+A limited bandwidth spherical harmonics energy descriptor globally describes a 3D shape and its rotation-invariant property is proven by utilizing the properties of a Wigner D-matrix, while the point feature representation captures the local features with a KNN to build the connection to its neighborhood.
+We propose a new network structure by extending PointNet++ with several adaptations that can hierarchically and efficiently exploit local rotation-invariant features.
+Extensive experimental results show that our proposed method dramatically outperforms most state-of-the-art approaches on standard rotation-augmented 3D object classification benchmarks as well as in robustness experiments on point perturbation, point density, and partial point clouds.
+<br><br>
+
+<hr>
+<style>
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+  }
+  #customers caption {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 120%;
+    padding: 5px;
+}
+  </style>
+<br><br>
+<table id="customers">
+  <caption>Comparison of rotation robustness on rotation-augmented ModelNet40 benchmark. Our proposed network shows the best performance in the settings (z/SO(3)) and (SO(3)/SO(3)), Note, values are given as a percentage.</caption>
+  <tr >
+      <td>Method</td>
+      <td>input(size)</td>
+      <td><math>z/z</math></td>
+      <td>z/SO(3)</td>
+      <td>SO(3)/SO(3)</td>
+  </tr>
+  <tr>
+      <td>Pointnet</td>
+      <td>pc  ( 1024 X 3 )</td>
+      <td>89.2</td>
+      <td>14.7</td>
+      <td>83.6</td>
+  </tr>
+  <tr>
+      <td>Pointnet++</td>
+      <td>pc (1024 X 3)</td>
+      <td>89.3</td>
+      <td>28.6</td>
+      <td>85.0</td>
+  </tr>
+  <tr>
+      <td>Voxnet</td>
+      <td>voxel (30^3)</td>
+      <td>83.0</td>
+      <td>-</td>
+      <td>73.0</td>
+  </tr>
+  <tr>
+      <td>Rotationnet 20x</td>
+      <td>voxel (20X224^2)</td>
+      <td>92.4</td>
+      <td>20.0</td>
+      <td>80.0</td>
+  </tr>
+  <tr>
+      <td>SO-net</td>
+      <td>pc+normal</td>
+      <td><b>92.6</b></td>
+      <td>21.1</td>
+      <td>80.2</td>
+  </tr>
+  <tr>
+      <td>DGCNN</td>
+      <td>pc (1024X3)</td>
+      <td>92.2</td>
+      <td>33.5</td>
+      <td>81.1</td>
+  </tr>
+  <tr>
+      <td>Spherical cnn</td>
+      <td>voxel (2X64^2)</td>
+      <td>88.9</td>
+      <td>78.6</td>
+      <td>86.9</td>
+  </tr>
+  <tr>
+      <td>Clusternet</td>
+      <td>pc (1024X3)</td>
+      <td>87.1</td>
+      <td>87.1</td>
+      <td>87.1</td>
+  </tr>
+  <tr>
+      <td>PCTMA_Net<math>(n_{sh,deg}=20)</math></td>
+      <td>pc( 1024 X 3 )</td>
+      <td>88.4</td>
+      <td>88.6</td>
+      <td>88.5</td>
+  </tr>
+  <tr>
+      <td>PCTMA_Net(n_{sh,deg}=30)</td>
+      <td>pc (1024X3)</td>
+      <td>88.6</td>
+      <td><b>88.7</b></td>
+      <td><b>88.8</b></td>
+  </tr>
+</table>
+<br>
+  </body>
+</html>

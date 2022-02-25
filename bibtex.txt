@@ -1,0 +1,8 @@
+@InProceedings{Lin2021RIF,
+  author    = {Lin, Jianjie and Rickert, Markus and Knoll, Alois},
+  booktitle = {2021 IEEE International Conference on Robotics and Automation (ICRA)},
+  title     = {Deep Hierarchical Rotation Invariance Learning with Exact Geometry Feature Representation for Point Cloud Classification},
+  year      = {2021},
+  pages     = {9529-9535},
+  doi       = {10.1109/ICRA48506.2021.9561307},
+}
